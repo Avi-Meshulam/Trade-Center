@@ -1,0 +1,66 @@
+﻿body {
+    padding-top: 120px;
+}
+
+th, td {
+    font-size: 15px;
+}
+
+tfoot {
+    font-weight: bolder;
+}
+
+input[type=file] {
+    color: yellow;
+}
+
+.navbar {
+    padding: 10px;
+}
+
+.products-sort-order {
+    padding-left: 25px;
+    font-size: 15px;
+}
+
+.product-card {
+    background-color: #eeeeee;
+    border-color: #538345;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    color: #333333;
+    padding: 15px;
+    margin: 5px;
+    height: 650px;
+}
+
+.product-card-data {
+    height: 270px;
+}
+
+.product-card-img {
+    height: 300px;
+}
+
+.product-img {
+    position: relative;
+    width: 260px;
+}
+
+.bin {
+    margin-left: 10px;
+}
+
+.delete-picture {
+    position: absolute;
+    cursor: pointer;
+}
+
+.product-shopping-cart-img {
+    height: 100px;
+}
+
+#logo {
+    margin-right: 10px;
+}
