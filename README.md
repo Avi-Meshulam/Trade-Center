@@ -1,4 +1,4 @@
-![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/Shopping.gif "Shopping")
+![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Shopping.gif "Shopping")
 
 #### Features/Technologies/Tools:
 + Asp.Net Mvc 5
@@ -16,23 +16,23 @@
 #### Operations Examples
 + AdaptiveDisplay
 		
-	![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/AdaptiveDisplay.gif "AdaptiveDisplay")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "AdaptiveDisplay")
 
 + Register
 		
-	![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/Register.gif "Register")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Register.gif "Register")
 
 + Advertise
 		
-	![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/Advertise.gif "Advertise")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Advertise.gif "Advertise")
 
 + Edit Product
 		
-	![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/EditProduct.gif "EditProduct")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/EditProduct.gif "EditProduct")
 
 + Sort
 		
-	![alt text](https://github.com/PrisonerM13/TradeCenter/blob/master/gif/Sort.gif "Sort")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Sort.gif "Sort")
 
 #### Rules
 + A user must be registerd in order to buy or sell. Viewing does not require registration.
@@ -50,6 +50,8 @@
 | Sold        | Product has been sold                     |3                   |
 
 #### Database
+| Property       | Value                  |
+| -------------- | ---------------------- |
 | Engine         | Microsoft SQL Server   |
 | Server Name    | (LocalDb)\MSSQLLocalDB |
 | DB Name        | TradeCenter            |
@@ -80,16 +82,11 @@
 #### Routes
 | Route                 | Description                                                         |
 | --------------------- | ------------------------------------------------------------------- |
-| /Home/Index (default) | Hosts a ___Products__ partial view, rendered by Ajax, consisting of |
-|                       | one ___Product__ partial view for each available-for-sale product.  |
-|                       | The view also contains a sort order radio buttons.                  |
+| /Home/Index **(default)** | Hosts a _Products_ partial view, rendered by Ajax, consisting of one _Product_ partial view for each available-for-sale product. The view also contains a sort order radio buttons. |
 | /Home/About           | A general description of the site (currently gibrish)               |
-| --------------------- | ------------------------------------------------------------------- |
 | /Account/Edit         | Edit exisitng user account                                          |
 | /Account/Register     | Sign up a new account                                               |
-| --------------------- | ------------------------------------------------------------------- |
 | /Product/Add          | Add/Advertise a new product                                         |
 | /Product/Details      | View an exisitng product                                            |
 | /Product/Edit         | Edit an exisitng product                                            |
-| --------------------- | ------------------------------------------------------------------- |
 | /Shopping Cart        | View/Edit shopping cart and commit a checkout (buy items)           |
