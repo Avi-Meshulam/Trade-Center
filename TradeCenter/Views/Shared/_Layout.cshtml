@@ -1,0 +1,92 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Trade Center</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a href="@Url.Action("Index", "Home")" class="pull-left">
+                    <img id="logo" src="@Url.Content("~/Content/Images/siteLogo.png")"
+                        class="img-thumbnail" alt="Trade Center Logo"/>
+                </a>
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <h4>
+                        Trade<br />
+                        Center
+                    </h4>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/Content/Images/home.png" />
+                            <div>Home</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("About", "Home")">
+                            <img src="~/Content/Images/about.png" />
+                            <div>About</div>
+                        </a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="~/ShoppingCart/ShoppingCart">
+                                <img src="~/Content/Images/shoppingCart.png" />
+                                <div>Shopping Cart</div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.Partial("_Login", new TradeCenter.Models.Login())</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+
+    <hr />
+    <footer class="container-fluid">
+        <p>&copy; @DateTime.Now.Year - Trade Center</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/tradeCenter")
+    @RenderSection("scripts", required: false)
+
+    @if (!string.IsNullOrEmpty(Messages.Message))
+    {
+        <script>custom_alert("@Messages.Message");</script>
+        Messages.Set(AppMessages.None);
+    }
+</body>
+</html>

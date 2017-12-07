@@ -1,0 +1,30 @@
+﻿@model IEnumerable<TradeCenter.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using(Ajax.BeginForm(
+    "Index", "Home",
+    new AjaxOptions {
+        HttpMethod="get",
+        InsertionMode=InsertionMode.Replace,
+        UpdateTargetId="products"},
+    new { id = "sortOrderForm" }))
+{
+    <label for="sortOrderOptions" class="pull-left products-sort-order">Sort By:&nbsp;</label>
+    <ul id="sortOrderOptions" class="list-inline">
+        <li>
+            <input type="radio" name="sortOrder" value="@ProductsSortOrder.PublishDate" checked>Publish Date
+        </li>
+        <li>
+            <input type="radio" name="sortOrder" value="@ProductsSortOrder.Title">Title
+        </li>
+    </ul>
+}
+
+@Html.Partial("_Products", Model)
+
+@section scripts {
+    <script src="~/Scripts/products.js"></script>
+}

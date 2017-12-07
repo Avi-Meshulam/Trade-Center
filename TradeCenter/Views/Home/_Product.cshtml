@@ -1,0 +1,64 @@
+﻿@model TradeCenter.Models.Product
+
+<section id="product-data" class="container-fluid">
+    <div class="product-card-data">
+        <h4>@Html.DisplayFor(model => model.Title)</h4>
+        <hr />
+
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ShortDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DatePublished)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DatePublished)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+        </dl>
+    </div>
+</section>
+
+<section id="product-image" class="container-fluid">
+    <img src=@Url.Action("GetPictureByProductID", "Product", new {productID = Model.ID}) 
+            class="img-thumbnail product-card-img" alt="Product Image" />
+</section>
+
+<section id="links" class="container-fluid">
+    <div class="col-md-8 col-sm-6 col-xs-3">
+        <div>
+            @Html.ActionLink("Details", "Details", "Product", new { productID = Model.ID }, null)
+        </div>
+
+        @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.Owner.UserName)
+        {
+            <div>
+                @Html.ActionLink("Edit", "Edit", "Product", new { productID = Model.ID }, null) |
+                @Html.ActionLink("Delete", "Delete", "Product", new { productID = Model.ID }, 
+                    new { onclick = "return confirm('Are you sure you want to delete this item?');" })
+            </div>
+        }
+    </div>
+
+    @if (User.Identity.IsAuthenticated && Model.State == ProductState.Avaialble)
+    {
+        <div class="pull-right">
+            <a href="/Product/AddToCart?productId=@Model.ID" class="btn btn-success btn-sm">
+                <img src="~/Content/Images/addToCart.png" />
+            </a>
+        </div>
+    }
+</section>
+
+

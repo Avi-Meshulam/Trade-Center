@@ -1,0 +1,120 @@
+﻿@model TradeCenter.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section id="product-data" class="container-fluid">
+        <h4>Product</h4>
+        <hr />
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LongDescription, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.LongDescription, htmlAttributes: new { @class = "form-control", @rows = "4" })
+                    @Html.ValidationMessageFor(model => model.LongDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-images" class="container-fluid col-md-offset-1">
+        <div id="divPicture1" class="col-lg-4 col-sm-6">
+            <div>@Html.LabelFor(model => model.Picture1, htmlAttributes: new { @class = "control-label" })</div>
+            <img id="picture1"
+                    src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 0 })
+                    class="img-thumbnail product-img" alt="Picture 1" />
+            @if (Model.Picture1 != null)
+            {
+                <img id="bin" src="~/Content/Images/bin.png" alt="Delete Picture 1"
+                        class="delete-picture"
+                        data-picture-id="1"
+                        data-url=@Url.Action("DeletePicture", new { productID = Model.ID, pictureIndex = 0 }) />
+            }
+            <input type="file" name="pic1" id="pic1" accept="image/*">
+            <div>@Html.ValidationMessageFor(model => model.Picture1, "", new { @class = "text-danger" })</div>
+        </div>
+
+        <div id="divPicture2" class="col-lg-4 col-sm-6">
+            <div>@Html.LabelFor(model => model.Picture2, htmlAttributes: new { @class = "control-label" })</div>
+            <img id="picture2"
+                    src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 1 })
+                    class="img-thumbnail product-img" alt="Picture 2" />
+            @if (Model.Picture2 != null)
+            {
+                <img id="bin" src="~/Content/Images/bin.png" alt="Delete Picture 2"
+                        class="delete-picture"
+                        data-picture-id="2"
+                        data-url=@Url.Action("DeletePicture", new { productID = Model.ID, pictureIndex = 1 }) />
+            }
+            <input type="file" name="pic2" id="pic2" accept="image/*">
+            <div>@Html.ValidationMessageFor(model => model.Picture2, "", new { @class = "text-danger" })</div>
+        </div>
+
+        <div id="divPicture3" class="col-lg-4 col-sm-6">
+            <div>@Html.LabelFor(model => model.Picture3, htmlAttributes: new { @class = "control-label" })</div>
+            <img id="picture3"
+                    src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 2 })
+                    class="img-thumbnail product-img" alt="Picture 3" />
+            @if (Model.Picture3 != null)
+            {
+                <img id="bin" src="~/Content/Images/bin.png" alt="Delete Picture 3"
+                        class="delete-picture"
+                        data-picture-id="3"
+                        data-url=@Url.Action("DeletePicture", new { productID = Model.ID, pictureIndex = 2 }) />
+            }
+            <input type="file" name="pic3" id="pic3" accept="image/*">
+            <div>@Html.ValidationMessageFor(model => model.Picture3, "", new { @class = "text-danger" })</div>
+        </div>
+    </section>
+
+    <br />
+    <section class="container-fluid col-md-offset-1">
+        <input type="submit" value="Save" class="btn btn-default" />
+        &nbsp;
+        @Html.ActionLink("Cancel", null, null, null, new { href = Request.UrlReferrer })
+        
+        <div>
+            <br />
+            @Html.ActionLink("Back to List", "Index", "Home")
+        </div>
+    </section>
+}
+
+@section scripts {
+    <script src="~/Scripts/product.js"></script>
+}

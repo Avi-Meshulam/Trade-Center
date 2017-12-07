@@ -1,0 +1,119 @@
+﻿@model TradeCenter.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<section id="product-data" class="container-fluid">
+    <h4>Product</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LongDescription)
+        </dt>
+        <dd class="textarea">
+            @Html.DisplayFor(model => model.LongDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePublished)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatePublished)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEdited)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateEdited)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</section>
+
+<section id="product-images" class="container-fluid col-md-offset-1">
+    <div class="form-group col-md-4 col-sm-6">
+        @Html.LabelFor(model => model.Picture1, htmlAttributes: new { @class = "control-label" })
+        <div>
+            <img src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 0 })
+                    class="img-thumbnail product-img" alt="Product Image 1" />
+        </div>
+        @Html.ValidationMessageFor(model => model.Picture1, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group col-md-4 col-sm-6">
+        @Html.LabelFor(model => model.Picture2, htmlAttributes: new { @class = "control-label" })
+        <div>
+            <img src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 1 })
+                    class="img-thumbnail product-img" alt="Product Image 2" />
+        </div>
+        @Html.ValidationMessageFor(model => model.Picture2, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group col-md-4 col-sm-6">
+        @Html.LabelFor(model => model.Picture3, htmlAttributes: new { @class = "control-label" })
+        <div>
+            <img src=@Url.Action("GetPictureByProductID", "Product", new { productID = Model.ID, pictureIndex = 2 })
+                    class="img-thumbnail product-img" alt="Product Image 3" />
+        </div>
+        @Html.ValidationMessageFor(model => model.Picture3, "", new { @class = "text-danger" })
+    </div>
+</section>
+
+<section id="links" class="container-fluid col-md-offset-1">
+    <div>
+        @if (User.Identity.IsAuthenticated && Model.State == ProductState.Avaialble)
+        {
+            <div>
+                <a href="/Product/AddToCart?productId=@Model.ID" class="btn btn-success btn-sm">
+                    <img src="~/Content/Images/addToCart.png" />
+                </a>
+            </div>
+        }
+
+        <br />
+
+        @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.Owner.UserName)
+        {
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { productID = Model.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { productID = Model.ID })
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", "Home")
+        </div>
+    </div>
+</section>

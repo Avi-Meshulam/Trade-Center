@@ -1,0 +1,95 @@
+﻿@model IEnumerable<TradeCenter.Models.Product>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<h2>Shopping Cart</h2>
+
+@if (Model.Count() > 0)
+{
+    <section id="shopping-cart">
+        <table class="table table-condensed">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBox(
+                             name: "chkProduct",
+                             isChecked: item.State == ProductState.InCart ? true : false,
+                             htmlAttributes:
+                             new
+                             {
+                                 data_url = Url.Action("chkProduct_Click", new { productID = item.ID })
+                             })
+                    </td>
+
+                    <td>
+                        <img src=@Url.Action("GetPictureByProductID", "Product",
+                            new { productID = item.ID })
+                             class="img-thumbnail product-shopping-cart-img" alt="Product Image" />
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+
+                    <td></td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                    <td>
+                        <a href="/ShoppingCart/Remove?productId=@item.ID" class="bin">
+                            <img src="~/Content/Images/bin.png" alt="Remove From Cart" />
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total: </td>
+                    <td id="totalPrice">
+                        @ViewBag.TotalPrice.ToString("C")
+                    </td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        @Html.ActionLink("Buy Now", "Buy", null,
+            htmlAttributes: new
+            {
+                id = "btnBuy",
+                @class = "btn btn-success",
+                data_url = Url.Action("btnBuy_Click", "ShoppingCart", null)
+            })
+    </section>
+}
+else
+{
+    <h4>It seems like your shopping cart is empty...</h4>
+    @Html.ActionLink("Back to List", "Index", "Home")
+}
+
+@section scripts {
+    <script src="~/Scripts/shoppingCart.js"></script>
+}

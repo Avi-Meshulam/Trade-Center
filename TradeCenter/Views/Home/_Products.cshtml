@@ -1,0 +1,15 @@
+﻿@model IEnumerable<TradeCenter.Models.Product>
+
+<div id="products">
+    @foreach (var product in Model)
+    {
+        if (product.State == ProductState.Avaialble)
+        {
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="product-card">
+                    @Html.Partial("_Product", product)
+                </div>
+            </div>
+        }
+    }
+</div>
