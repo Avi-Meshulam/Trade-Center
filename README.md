@@ -14,21 +14,21 @@
 + SQL Server Local DB
 
 #### Operations Examples
-+ AdaptiveDisplay
++ Adaptive Display
 		
-	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "AdaptiveDisplay")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "Adaptive Display")
 
 + Register
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Register.gif "Register")
 
-+ Advertise
++ Add Product
 		
-	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Advertise.gif "Advertise")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AddProduct.gif "Add Product")
 
 + Edit Product
 		
-	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/EditProduct.gif "EditProduct")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/EditProduct.gif "Edit Product")
 
 + Sort
 		
