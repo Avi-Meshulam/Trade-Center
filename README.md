@@ -45,7 +45,7 @@
 #### Product states
 | State Name  | Description                               | State Code (in DB) |
 | ----------- | ----------------------------------------- |:------------------:|
-| Avaialble   | Product is avaialble for sale             |0                   |
+| Available   | Product is available for sale             |0                   |
 | InCart      | Product has been added to a shopping cart |1                   |
 | OnHold      | Product is currently being viewed         |2                   |
 | Sold        | Product has been sold                     |3                   |
