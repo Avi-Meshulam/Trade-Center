@@ -15,9 +15,9 @@
 + SQL Server Local DB
 
 #### Operations Examples
-+ Adaptive Display
++ Responsive Design
 		
-	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "Adaptive Display")
+	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "Responsive Design")
 
 + Register
 		
