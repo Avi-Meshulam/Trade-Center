@@ -15,23 +15,23 @@
 + SQL Server Local DB
 
 ### Operations Examples
-	#### Responsive Design
++ #### Responsive Design
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AdaptiveDisplay.gif "Responsive Design")
 
-	#### Register
++ #### Register
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Register.gif "Register")
 
-	#### Add Product
++ #### Add Product
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/AddProduct.gif "Add Product")
 
-	#### Edit Product
++ #### Edit Product
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/EditProduct.gif "Edit Product")
 
-	#### Sort
++ #### Sort
 		
 	![alt text](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Sort.gif "Sort")
 
