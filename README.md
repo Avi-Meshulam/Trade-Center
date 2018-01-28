@@ -65,7 +65,7 @@
 * Product's OwnerID is set to publishing user's Id and then to buying user's Id.
 * Product's UserID is set to currently watching user's Id.
 		
-> The first time it's lanched, tha application generates 10 random users and 12 constant products.
+> The first time it's lanched, the application generates 10 random users and 12 constant products.
 > User names and passwords are formatted as "userXX" and "passXX" respectevly, where XX is a 2 digit number between 01 and 10.
 > Each product is assigned to a random user, but the application assures that "user01" owns at least 2 products (just for comfortability).
 
