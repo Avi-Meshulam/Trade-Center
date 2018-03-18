@@ -8,7 +8,7 @@
 + jQuery AJAX
 + jQuery.UI
 + jQuery.Validation
-+ Bootstrap
++ Bootstrap 3
 + Responsive Design
 + Cross-Browser support
 + Modernizr
