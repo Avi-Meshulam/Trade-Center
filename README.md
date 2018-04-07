@@ -1,5 +1,5 @@
 # Trade Center
-### A trading web site, built with Asp.Net Mvc 5, AJAX (Asp.Net/jQuery), Bootstrap 3, Entity Framework 6 and SQL Server Local DB.
+### A trading web site, built with Asp.Net MVC 5, AJAX (Asp.Net/jQuery), Bootstrap 3, Entity Framework 6 and SQL Server Local DB.
 ![Shopping](https://github.com/PrisonerM13/Trade-Center/blob/master/gif/Shopping.gif "Shopping")
 
 ### Features/Technologies/Tools:
